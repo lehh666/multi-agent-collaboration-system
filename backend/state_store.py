@@ -3,6 +3,16 @@ from typing import Dict, List, Optional, Any
 import json
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# 尝试导入 supabase
+try:
+    from supabase import create_client, Client
+    SUPABASE_AVAILABLE = True
+except ImportError:
+    SUPABASE_AVAILABLE = False
 
 class StateStore:
     """管理虚拟城市的世界状态（智能体的位置、情绪、任务等）"""
@@ -12,12 +22,27 @@ class StateStore:
         os.makedirs(storage_path, exist_ok=True)
         # 内存中的状态：{room_id: {agents: [...], environment: {...}}}
         self._memory: Dict[str, Dict[str, Any]] = {}
-    
+        
+        # 初始化 Supabase
+        self.supabase: Optional[Client] = None
+        self.use_supabase = False
+        
+        supabase_url = os.getenv("SUPABASE_URL")
+        supabase_key = os.getenv("SUPABASE_KEY")
+        
+        if SUPABASE_AVAILABLE and supabase_url and supabase_key:
+            try:
+                self.supabase = create_client(supabase_url, supabase_key)
+                self.use_supabase = True
+                print(f"[INFO] 已连接到 Supabase: {supabase_url}")
+            except Exception as e:
+                print(f"[ERROR] 连接 Supabase 失败: {e}")
+
     def get_world(self, room_id: str) -> Dict[str, Any]:
         """获取指定房间的世界状态"""
         if room_id not in self._memory:
-            # 尝试从文件加载
-            self._load_from_file(room_id)
+            # 尝试从存储加载
+            self._load_state(room_id)
         
         if room_id not in self._memory:
             # 初始化默认状态
@@ -91,7 +116,7 @@ class StateStore:
                 },
                 "lastUpdated": datetime.now().isoformat()
             }
-            self._save_to_file(room_id)
+            self._save_state(room_id)
         
         return self._memory[room_id]
     
@@ -138,8 +163,40 @@ class StateStore:
                         break
         
         world["lastUpdated"] = datetime.now().isoformat()
-        self._save_to_file(room_id)
+        self._save_state(room_id)
     
+    def _save_state(self, room_id: str) -> None:
+        """保存状态（优先 Supabase，降级为文件）"""
+        if self.use_supabase:
+            try:
+                data = {
+                    "room_id": room_id,
+                    "data": self._memory[room_id],
+                    "updated_at": datetime.now().isoformat()
+                }
+                # Upsert data
+                self.supabase.table("world_states").upsert(data).execute()
+                return
+            except Exception as e:
+                print(f"[ERROR] 保存到 Supabase 失败: {e}")
+                # 降级到文件保存
+        
+        self._save_to_file(room_id)
+
+    def _load_state(self, room_id: str) -> None:
+        """加载状态（优先 Supabase，降级为文件）"""
+        if self.use_supabase:
+            try:
+                response = self.supabase.table("world_states").select("data").eq("room_id", room_id).execute()
+                if response.data and len(response.data) > 0:
+                    self._memory[room_id] = response.data[0]["data"]
+                    return
+            except Exception as e:
+                print(f"[ERROR] 从 Supabase 加载失败: {e}")
+                # 降级到文件加载
+        
+        self._load_from_file(room_id)
+
     def _save_to_file(self, room_id: str) -> None:
         """保存状态到文件"""
         file_path = os.path.join(self.storage_path, f"{room_id}.json")
@@ -163,6 +220,13 @@ class StateStore:
         """清空指定房间的状态"""
         if room_id in self._memory:
             del self._memory[room_id]
+            
+        if self.use_supabase:
+            try:
+                self.supabase.table("world_states").delete().eq("room_id", room_id).execute()
+            except Exception as e:
+                print(f"[ERROR] 从 Supabase 删除失败: {e}")
+
         file_path = os.path.join(self.storage_path, f"{room_id}.json")
         if os.path.exists(file_path):
             os.remove(file_path)
