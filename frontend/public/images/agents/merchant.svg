@@ -1,0 +1,35 @@
+<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for character -->
+  <circle cx="40" cy="60" r="35" fill="#F59E0B" opacity="0.2"/>
+  
+  <!-- Character body - Merchant suit -->
+  <rect x="25" y="50" width="30" height="40" rx="3" fill="#F59E0B"/>
+  <rect x="35" y="55" width="10" height="35" fill="#e68e0a"/>
+  <path d="M25 50 L40 40 L55 50" fill="#F59E0B"/> <!-- Jacket collar -->
+  
+  <!-- Head -->
+  <circle cx="40" cy="30" r="15" fill="#FFE4C4"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="35" cy="27" rx="2.5" ry="3" fill="#333"/>
+  <ellipse cx="45" cy="27" rx="2.5" ry="3" fill="#333"/>
+  
+  <!-- Money bag -->
+  <path d="M65 60 Q75 55 75 65 Q75 75 65 70 Z" fill="#D4AF37"/>
+  <path d="M68 63 Q72 60 72 65 Q72 68 68 67 Z" fill="#F9F9F9"/>
+  
+  <!-- Mouth -->
+  <path d="M37 35 Q40 37 43 35" stroke="#333" stroke-width="1.5" fill="none"/>
+  
+  <!-- Arms -->
+  <line x1="25" y1="55" x2="15" y2="70" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  <line x1="55" y1="55" x2="65" y2="70" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Legs -->
+  <line x1="35" y1="90" x2="35" y2="110" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  <line x1="45" y1="90" x2="45" y2="110" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Business hat/bowler -->
+  <ellipse cx="40" cy="18" rx="12" ry="6" fill="#333"/>
+  <rect x="28" y="15" width="24" height="3" fill="#333"/>
+</svg>

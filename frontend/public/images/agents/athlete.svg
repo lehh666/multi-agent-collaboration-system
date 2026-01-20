@@ -1,0 +1,35 @@
+<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for character -->
+  <circle cx="40" cy="60" r="35" fill="#FF6B6B" opacity="0.2"/>
+  
+  <!-- Character body - Athletic shorts and shirt -->
+  <rect x="25" y="50" width="30" height="40" rx="3" fill="#FF6B6B"/>
+  <rect x="30" y="55" width="20" height="15" fill="#ff5252"/>
+  <circle cx="40" cy="60" r="5" fill="#ff4444"/> <!-- Ball emblem -->
+  
+  <!-- Head -->
+  <circle cx="40" cy="30" r="15" fill="#FFE4C4"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="35" cy="27" rx="2.5" ry="3" fill="#333"/>
+  <ellipse cx="45" cy="27" rx="2.5" ry="3" fill="#333"/>
+  
+  <!-- Sports equipment -->
+  <line x1="15" y1="50" x2="25" y2="40" stroke="#333" stroke-width="3"/>
+  <line x1="65" y1="50" x2="55" y2="40" stroke="#333" stroke-width="3"/>
+  
+  <!-- Mouth -->
+  <path d="M37 35 Q40 37 43 35" stroke="#333" stroke-width="1.5" fill="none"/>
+  
+  <!-- Arms -->
+  <line x1="25" y1="55" x2="15" y2="70" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round"/>
+  <line x1="55" y1="55" x2="65" y2="70" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Legs -->
+  <line x1="35" y1="90" x2="35" y2="110" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round"/>
+  <line x1="45" y1="90" x2="45" y2="110" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Sports cap -->
+  <circle cx="40" cy="15" r="15" fill="#333"/>
+  <ellipse cx="40" cy="12" rx="10" ry="3" fill="#333"/>
+</svg>

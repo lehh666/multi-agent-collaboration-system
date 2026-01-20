@@ -1,0 +1,70 @@
+{
+  "agents": [
+    {
+      "id": "mathematician",
+      "name": "Mathematician",
+      "role": "mathematician",
+      "x": 100,
+      "y": 200,
+      "mood": "calm",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "artist",
+      "name": "Artist",
+      "role": "artist",
+      "x": 300,
+      "y": 200,
+      "mood": "creative",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "engineer",
+      "name": "Engineer",
+      "role": "engineer",
+      "x": 500,
+      "y": 200,
+      "mood": "focused",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "merchant",
+      "name": "Merchant",
+      "role": "merchant",
+      "x": 700,
+      "y": 200,
+      "mood": "cautious",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "athlete",
+      "name": "Athlete",
+      "role": "athlete",
+      "x": 100,
+      "y": 400,
+      "mood": "energetic",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "doctor",
+      "name": "Doctor",
+      "role": "doctor",
+      "x": 300,
+      "y": 400,
+      "mood": "caring",
+      "currentTask": null,
+      "relations": {}
+    }
+  ],
+  "environment": {
+    "timeOfDay": "day",
+    "weather": "sunny",
+    "rooms": []
+  },
+  "lastUpdated": "2026-01-20T13:37:25.492517"
+}

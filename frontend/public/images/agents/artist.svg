@@ -1,0 +1,39 @@
+<svg width="80" height="120" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for character -->
+  <circle cx="40" cy="60" r="35" fill="#E94B9C" opacity="0.2"/>
+  
+  <!-- Character body - Artist smock -->
+  <path d="M25 50 L30 45 L50 45 L55 50 L55 90 L25 90 Z" fill="#E94B9C"/>
+  
+  <!-- Head -->
+  <circle cx="40" cy="30" r="15" fill="#FFE4C4"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="35" cy="27" rx="2.5" ry="3" fill="#333"/>
+  <ellipse cx="45" cy="27" rx="2.5" ry="3" fill="#333"/>
+  
+  <!-- Paintbrushes on shoulder -->
+  <line x1="30" y1="20" x2="20" y2="10" stroke="#FF6B6B" stroke-width="2"/>
+  <line x1="35" y1="18" x2="25" y2="8" stroke="#4A90E2" stroke-width="2"/>
+  <line x1="40" y1="16" x2="30" y2="6" stroke="#E94B9C" stroke-width="2"/>
+  
+  <!-- Palette on arm -->
+  <circle cx="55" cy="60" r="8" fill="#FFF" stroke="#333" stroke-width="1"/>
+  <circle cx="52" cy="57" r="2" fill="#FF6B6B"/>
+  <circle cx="57" cy="57" r="2" fill="#4A90E2"/>
+  <circle cx="54" cy="62" r="2" fill="#E94B9C"/>
+  
+  <!-- Mouth -->
+  <path d="M37 35 Q40 37 43 35" stroke="#333" stroke-width="1.5" fill="none"/>
+  
+  <!-- Arms -->
+  <line x1="25" y1="55" x2="15" y2="70" stroke="#E94B9C" stroke-width="4" stroke-linecap="round"/>
+  <line x1="55" y1="55" x2="65" y2="70" stroke="#E94B9C" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Legs -->
+  <line x1="35" y1="90" x2="35" y2="110" stroke="#E94B9C" stroke-width="4" stroke-linecap="round"/>
+  <line x1="45" y1="90" x2="45" y2="110" stroke="#E94B9C" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Beret hat -->
+  <ellipse cx="40" cy="15" rx="12" ry="5" fill="#333"/>
+</svg>

@@ -1,0 +1,166 @@
+.character-bubble {
+  position: absolute;
+  width: 260px;
+  height: 320px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transform: translate(-50%, -100%);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #eee;
+}
+
+.bubble-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 12px 12px 0 0;
+}
+
+.bubble-title {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.bubble-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.bubble-close:hover {
+  color: #333;
+}
+
+.bubble-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bubble-message {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  max-width: 85%;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.bubble-message.assistant {
+  background-color: #f0f2f5;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+.bubble-message.user {
+  background-color: #4A90E2;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.bubble-message.typing {
+  color: #999;
+  font-style: italic;
+}
+
+.bubble-input-area {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 8px;
+}
+
+.bubble-input-area input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 12px;
+  outline: none;
+}
+
+.bubble-input-area input:focus {
+  border-color: #4A90E2;
+}
+
+.bubble-input-area button {
+  background: #4A90E2;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.bubble-input-area button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.bubble-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+}
+
+.character-bubble.top .bubble-arrow {
+  bottom: -8px;
+  border-top: 8px solid white;
+}
+
+.character-bubble.bottom .bubble-arrow {
+  top: -8px;
+  border-bottom: 8px solid white;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -90%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1);
+  }
+}
+
+.character-bubble.bottom {
+  animation: popInBottom 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popInBottom {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}

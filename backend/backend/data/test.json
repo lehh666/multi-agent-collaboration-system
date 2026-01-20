@@ -1,0 +1,70 @@
+{
+  "agents": [
+    {
+      "id": "mathematician",
+      "name": "数学家",
+      "role": "mathematician",
+      "x": 100,
+      "y": 200,
+      "mood": "calm",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "artist",
+      "name": "艺术家",
+      "role": "artist",
+      "x": 300,
+      "y": 200,
+      "mood": "creative",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "engineer",
+      "name": "工程师",
+      "role": "engineer",
+      "x": 500,
+      "y": 200,
+      "mood": "focused",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "merchant",
+      "name": "商人",
+      "role": "merchant",
+      "x": 700,
+      "y": 200,
+      "mood": "cautious",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "athlete",
+      "name": "运动员",
+      "role": "athlete",
+      "x": 100,
+      "y": 400,
+      "mood": "energetic",
+      "currentTask": null,
+      "relations": {}
+    },
+    {
+      "id": "doctor",
+      "name": "医生",
+      "role": "doctor",
+      "x": 300,
+      "y": 400,
+      "mood": "caring",
+      "currentTask": null,
+      "relations": {}
+    }
+  ],
+  "environment": {
+    "timeOfDay": "day",
+    "weather": "sunny",
+    "rooms": []
+  },
+  "lastUpdated": "2026-01-20T13:31:12.445061"
+}
